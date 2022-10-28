@@ -77,7 +77,9 @@ func CreateBudget(month time.Month, max float32) (*Budget, error) {
 	if _, hasEntry := report[month]; hasEntry {
 		return nil, errDuplicateEntry
 	}
-
+	if len(report) >= 12 {
+		return nil, errReportIsFull
+	}
 	newBudget = &Budget{Max: max}
 	report[month] = newBudget
 	return newBudget, nil
