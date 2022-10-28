@@ -75,6 +75,8 @@ func (b *Budget) RemoveItem(description string) {
 func CreateBudget(month time.Month, max float32) (*Budget, error) {
 	var newBudget *Budget
 
+	newBudget = &Budget{Max: max}
+	newBudget = report[month]
 	return newBudget, nil
 }
 
